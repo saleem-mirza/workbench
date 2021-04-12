@@ -1,0 +1,2 @@
+[profile.release]
+rustflags="-C target-features=+sse3 -C debuginfo=0"
