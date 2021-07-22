@@ -1,0 +1,33 @@
+AWSTemplateFormatVersion: 2010-09-09
+Resources:
+  EMR_DefaultRole:
+    Type: AWS::IAM::Role
+    Properties:
+      Path: /
+      RoleName: EMR_DefaultRole
+      ManagedPolicyArn:
+        - AmazonElasticMapReduceRole
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: "Allow"
+            Action:
+              - "sts:AssumeRole"
+            Principal:
+              - Service: elasticmapreduce.amazonaws.com
+
+  EMR_EC2_DefaultRole:
+    Type: AWS::IAM::Role
+    Properties:
+      Path: /
+      RoleName: EMR_EC2_DefaultRole
+      ManagedPolicyArn:
+        - AmazonElasticMapReduceforEC2Role
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: "Allow"
+            Action:
+              - "sts:AssumeRole"
+            Principal:
+              - Service: ec2.amazonaws.com
