@@ -1,12 +1,12 @@
 AWSTemplateFormatVersion: 2010-09-09
 Resources:
-  EMR_DefaultRole:
+  EmrDefaultRole:
     Type: AWS::IAM::Role
     Properties:
       Path: /
       RoleName: EMR_DefaultRole
-      ManagedPolicyArn:
-        - AmazonElasticMapReduceRole
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/service-role/AmazonElasticMapReduceRole
       AssumeRolePolicyDocument:
         Version: "2012-10-17"
         Statement:
@@ -14,15 +14,15 @@ Resources:
             Action:
               - "sts:AssumeRole"
             Principal:
-              - Service: elasticmapreduce.amazonaws.com
+              Service: elasticmapreduce.amazonaws.com
 
-  EMR_EC2_DefaultRole:
+  EmrEC2DefaultRole:
     Type: AWS::IAM::Role
     Properties:
       Path: /
       RoleName: EMR_EC2_DefaultRole
-      ManagedPolicyArn:
-        - AmazonElasticMapReduceforEC2Role
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/service-role/AmazonElasticMapReduceforEC2Role
       AssumeRolePolicyDocument:
         Version: "2012-10-17"
         Statement:
@@ -30,4 +30,4 @@ Resources:
             Action:
               - "sts:AssumeRole"
             Principal:
-              - Service: ec2.amazonaws.com
+              Service: ec2.amazonaws.com
