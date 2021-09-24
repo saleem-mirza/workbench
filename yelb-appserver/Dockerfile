@@ -1,4 +1,4 @@
-FROM rust:1.51 as builder
+FROM rust:1.55 as builder
 WORKDIR /src/yelb-appserver
 COPY . .
 RUN cargo build --release
